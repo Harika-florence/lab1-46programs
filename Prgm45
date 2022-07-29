@@ -1,0 +1,7 @@
+import sqlite3 
+con=sqlite3.connect('database2.sqlite3') 
+cur=con.cursor() 
+cur.execute('select first_name,last_name,salary from employee where 
+salary>(select avg(salary) from employee)') 
+data=cur.fetchall() 
+print(data)
