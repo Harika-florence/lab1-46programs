@@ -1,0 +1,36 @@
+import sqlite3 
+con=sqlite3.connect('database2.sqlite3') 
+cur=con.cursor() 
+query1='create table employee(employee_id int,first_name 
+varchar(255),last_name varchar(255),email varchar(255),phone_number 
+int,hire_date varchar(255),job_id int,salary int,commission_pct int,manager_id 
+int,department_id varchar(255))' 
+#cur.execute(query1) 
+query2='insert into employee values(?,?,?,?,?,?,?,?,?,?,?)' 
+val=[(101,'Bhanu','Prakash','pbhanu.prakash@gmail.com',8715324510,'20-APR-
+2014',21,35000,5000,201,'cse01'), 
+(102,'Naresh','G','naresh@gmail.com',9661458439,'12-JAN-
+2015',23,25000,2500,201,'cse01'), 
+(103,'Komali','V','vejandla.komali@gmail.com',9019234328,'12-DEC-
+2010',31,40000,6000,301,'cb02'), 
+(104,'Radha','Rani','rr.ani@gmail.com',7623142110,'22-OCT-
+2017',32,38000,5000,302,'db01'), 
+(105,'Kranthi','Kumar','kranthi.kakarla@gmail.com',8756632210,'07-JUN-
+2019',31,20000,2000,301,'cb02'), 
+(106,'Kedhar','T','kedareswari.t@gmail.com',9763221568,'02-FEB-
+2019',23,20000,1000,205,'cse01'), 
+(107,'Rahul','R','rrahul.a08@gmail.com',7842681797,'28-AUG-
+2021',34,15000,500,302,'db01'), 
+(108,'Vamsi','L','vamsi123@gmail.com',1234567890,'05-JAN-2020',28,10000,350,909,'cs15')
+,
+(109,'Pardhav','P','pardhav0@gmail.com',7546491797,'27-AUG-
+2020',30,15000,500,341,'cs21'), 
+(110,'Swarna','M','swarna9@gmail.com',5637861797,'25-SEP-
+2021',39,12000,400,362,'ec76')] 
+'''for i in val: 
+cur.execute(query2,i) 
+con.commit()''' 
+cur.execute('select * from employee') 
+for i in cur: 
+print(i) 
+con.commit()
