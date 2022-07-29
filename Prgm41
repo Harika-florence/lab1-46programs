@@ -1,0 +1,20 @@
+class Person(object): 
+def init (self, name): 
+self.name = name 
+def getName(self): 
+return self.name 
+def isEmployee(self): 
+return False 
+# Inherited or Subclass (Note Person in bracket) 
+class Employee(Person): 
+def init (self, name, eid): 
+''' In Python 3.0+, "super(). init (name)" also works''' 
+super(Employee, self). init (name) 
+self.empID = eid 
+def isEmployee(self): 
+return True 
+def getID(self): 
+return self.empID 
+# Driver code 
+emp = Employee("Geek1", "E101") 
+print(emp.getName(), emp.isEmployee(), emp.getID())
