@@ -1,0 +1,7 @@
+import sqlite a sql
+con=ql.connect('datbase3.sqlite3')
+cur=con.cursor()
+cur.execute('''select first-name,last-name,salary from employees order by salary desc''')
+emp=cur.fetchall()
+n=int(input('enter value of n:'))
+print(emp[n-1])
