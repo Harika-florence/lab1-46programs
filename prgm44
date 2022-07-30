@@ -1,0 +1,6 @@
+import sqlite3 as sql
+con=sql.connect('database3.sqlite3')
+query=con.execute('''select avg(sal).dept-id from employees group by dept-id having count(*)>=10''')
+con.commit()
+for i in query:
+ print(i)
